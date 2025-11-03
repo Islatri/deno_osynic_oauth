@@ -1,8 +1,16 @@
 import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 import { load } from "https://deno.land/std@0.224.0/dotenv/mod.ts";
 
-// 加载 .env 文件
-const env = await load();
+// 加载 .env 文件（如果存在）
+let env: Record<string, string> = {};
+try {
+  env = await load();
+} catch (error) {
+  // 在部署环境中可能没有 .env 文件，这是正常的
+  const errMsg = error instanceof Error ? error.message : String(error);
+  console.error("⚠️ .env file not found, proceeding with environment variables:", errMsg);
+  console.log("ℹ️ .env file not found, using environment variables instead");
+}
 
 // 配置信息
 const config = {
