@@ -259,7 +259,7 @@ async function handler(req: Request): Promise<Response> {
       </head>
       <body>
         <div class="container">
-          <h1>⚡ osu! OAuth Server</h1>
+          <h1>⚡ Osynic osu! OAuth Server</h1>
           <div class="subtitle">高性能 OAuth 认证服务 | 现代化架构</div>
           <p>这是一个用于处理 osu! API OAuth 认证的服务端。采用最新的安全标准和现代化设计。</p>
           
